@@ -3,7 +3,7 @@ import {GitHub} from "@actions/github/lib/utils";
 import core from "@actions/core";
 
 let cachedOctokit: InstanceType<typeof GitHub>;
-const getOctokit = async (): Promise<InstanceType<typeof GitHub>> => {
+const getOctokit = (): InstanceType<typeof GitHub> => {
     if (cachedOctokit) {
         return cachedOctokit;
     }
@@ -23,7 +23,7 @@ const getGitHubContext = (): { owner: string, repo: string, issue_number: number
 }
 
 export const getExistingLabels = async (): Promise<string[]> => {
-    const octokit = await getOctokit();
+    const octokit = getOctokit();
     const {owner, repo, issue_number} = getGitHubContext();
     const response = await octokit.rest.issues.listLabelsOnIssue({owner, repo, issue_number});
 
@@ -35,7 +35,7 @@ export const removeLabels = async (labels: string[]): Promise<void> => {
         console.log('No labels to remove');
         return;
     }
-    const octokit = await getOctokit();
+    const octokit = getOctokit();
     const {owner, repo, issue_number} = getGitHubContext();
 
     const promises = labels.map(async name => {
@@ -55,7 +55,7 @@ export const addLabels = async (labels: string[]): Promise<void> => {
         console.log('No labels to add');
         return;
     }
-    const octokit = await getOctokit();
+    const octokit = getOctokit();
     const {owner, repo, issue_number} = getGitHubContext();
     await octokit.rest.issues.addLabels({owner, repo, issue_number, labels})
 }

@@ -1,5 +1,5 @@
 const { beforeEach, describe, it, afterEach } = require('mocha')
-const api = require('../index.ts')
+const api = require('../src/index.ts')
 const core = require('@actions/core')
 const fs = require('fs')
 const sinon = require('sinon')
