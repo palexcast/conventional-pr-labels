@@ -1,0 +1,22 @@
+{
+  "name": "conventional-pr-labels",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun build src/index.ts --outdir ./dist --target bun",
+    "test": "bun test",
+    "test:watch": "bun test --watch"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "js-yaml": "^4.1.0",
+    "mocha": "^10.2.0",
+    "sinon": "^16.1.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "@kevits/conventional-commit": "^1.0.0"
+  }
+}

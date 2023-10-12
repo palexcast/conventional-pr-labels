@@ -1,0 +1,31 @@
+name: 'conventional-pr-labels'
+description: "automatically adds labels to pull requests based on Conventional Commits. Works with GitHub automated releases"
+author: Alexander Castillo
+inputs:
+  token:
+    description: 'GitHub token for applying labels, defaults to using secrets.GITHUB_TOKEN'
+    required: false
+    default: ${{ github.token }}
+  type_labels:
+    description: 'what labels to apply to different conventional commit types'
+    required: false
+    default: '{"feat": "feature", "fix": "fix", "breaking": "breaking"}'
+    type: string
+  ignored_types:
+    description: 'Conventional Commit types that should have ignore_label applied'
+    required: false
+    default: '["chore"]'
+    type: string
+  ignore_label:
+    description: 'label to apply for ignored commits'
+    required: false
+    default: 'ignore-for-release'
+    type: string
+
+branding:
+  icon: 'align-justify'
+  color: 'yellow'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
