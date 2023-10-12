@@ -13,7 +13,7 @@ const run = async () => {
 
     const titleParts = parseHeader(pullRequestTitle);
     if (titleParts === null || hasInvalidTitleParts(titleParts)) {
-        console.warn('Could not parse pull request title');
+        console.warn(`Could not parse pull request title '${pullRequestTitle}'. Does it adhere to Conventional Commits (https://www.conventionalcommits.org/en/v1.0.0/)?`);
         return;
     }
 
