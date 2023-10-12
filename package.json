@@ -12,11 +12,11 @@
     "js-yaml": "^4.1.0",
     "mocha": "^10.2.0",
     "sinon": "^16.1.0",
-    "typescript": "^5.2.0"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "@actions/core": "^1.10.1",
-    "@actions/github": "^5.1.1",
+    "@actions/github": "^6.0.0",
     "@kevits/conventional-commit": "^1.0.0"
   }
 }
